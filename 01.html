@@ -9,17 +9,59 @@
 </head>
 <body>
 <script>
-    let Document = {
-        title: " ",
-        body: ,
-        footer:,
-        data:,
-        app:{
-            body:,
-            footer: ,
-            data: ,
-        }
-    }
+
+    let doc = {
+        title: "1",
+        content: "",
+        footer: "",
+        date: "",
+        CW: function(oc){
+            let self=this;
+            for (let key in doc){
+                if(key==="CW"){
+                    break
+                }
+                self[key] = oc[key];
+            }},
+
+        app: {
+            title: "_заголовок",
+            content: "_тело",
+            footer: "_футер",
+            date: "_07.07.2007",
+        },
+
+
+        show: function() {
+            for (let key in this){
+                if(key==="CW"){
+                    break
+                }
+                document.write(this[key], "<br>");
+
+            }
+
+        },
+        showw: function(){
+            document.write(this.app.title);
+
+        },
+        CW2: function (F) {
+            this.app.title=F;
+        },
+    };
+
+    doc.CW({
+        title: "Заголовок",
+        content: "Тело",
+        footer: "Футер",
+        date: "06.06.2006",
+    });
+    doc.show();
+    doc.CW2("TITLE");
+    doc.showw();
+
 </script>
+
 </body>
 </html>
